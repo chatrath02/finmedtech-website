@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BP Tracker - Smart Blood Pressure Monitoring</title>
+    <meta name="description" content="Track, analyse, and understand your blood pressure with intelligent insights. NHS-aligned categories, AI health assistant, and medication tracking.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #1E88E5 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            background: white;
+            color: #1565C0;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .hero .cta:hover {
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .features {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            color: #1565C0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #1565C0;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .categories {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .categories h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1565C0;
+        }
+
+        .categories .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .category-card .range {
+            font-size: 0.9em;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-top: 6px;
+        }
+
+        .cat-normal { background: #43A047; }
+        .cat-elevated { background: #FB8C00; }
+        .cat-stage2 { background: #E53935; }
+        .cat-crisis { background: #B71C1C; }
+
+        .who-for {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .who-for h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #1565C0;
+        }
+
+        .who-for ul {
+            max-width: 600px;
+            margin: 0 auto;
+            list-style: none;
+        }
+
+        .who-for li {
+            padding: 15px 0;
+            font-size: 1.1em;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .who-for li:before {
+            content: "\2713  ";
+            color: #1565C0;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .disclaimer {
+            padding: 40px 20px;
+            background: #fff3cd;
+            text-align: center;
+        }
+
+        .disclaimer p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #856404;
+            font-size: 0.95em;
+        }
+
+        footer {
+            background: #0D47A1;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero .tagline {
+                font-size: 1.2em;
+            }
+
+            .features h2, .categories h2, .who-for h2 {
+                font-size: 2em;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>BP Tracker</h1>
+        <p class="tagline">Smart Blood Pressure Monitoring</p>
+        <p style="font-size: 1.1em; margin-bottom: 20px;">Track, analyse, and understand your cardiovascular health with intelligent insights</p>
+        <a href="#" class="cta">Coming Soon to App Store</a>
+    </div>
+
+    <section class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>BP Logging &amp; Charts</h3>
+                    <p>Log systolic, diastolic, and pulse readings with optional notes. View your history in clear, interactive charts organised by month.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🏥</div>
+                    <h3>NHS-Aligned Categories</h3>
+                    <p>Every reading is categorised using NHS/NICE guidelines — Normal, Elevated, Stage 2 Hypertension, or Crisis — so you always know where you stand.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📈</div>
+                    <h3>Trend Analysis</h3>
+                    <p>See whether your blood pressure is trending up, down, or stable. Understand the direction and magnitude of changes over time.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Health Assistant</h3>
+                    <p>Chat with an AI assistant that understands your readings. Ask questions about your blood pressure patterns and get general health information.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">💊</div>
+                    <h3>Medication Tracking</h3>
+                    <p>Log your medications with dosage and frequency. Set reminders so you never miss a dose. Track how medications correlate with your readings.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Private &amp; Secure</h3>
+                    <p>Your health data stays on your device by default. Optional cloud sync uses encrypted storage. Biometric login with Face ID and Touch ID.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🕐</div>
+                    <h3>Time-of-Day Patterns</h3>
+                    <p>Discover how your blood pressure varies throughout the day — morning, afternoon, evening, and night — with automatic pattern detection.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📤</div>
+                    <h3>CSV Export</h3>
+                    <p>Export your complete reading history as a CSV file. Share it with your GP, cardiologist, or use it for your own records.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>Works Offline</h3>
+                    <p>All readings are stored locally on your device. The app works fully offline — cloud sync is optional for backup and multi-device access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <h2>NHS Blood Pressure Categories</h2>
+            <p class="subtitle">Every reading is automatically categorised using NHS/NICE clinical guidelines</p>
+            <div class="category-grid">
+                <div class="category-card cat-normal">
+                    Normal
+                    <div class="range">&lt; 120 / 80 mmHg</div>
+                </div>
+                <div class="category-card cat-elevated">
+                    Elevated
+                    <div class="range">120-139 / 80-89 mmHg</div>
+                </div>
+                <div class="category-card cat-stage2">
+                    Stage 2 Hypertension
+                    <div class="range">140-179 / 90-119 mmHg</div>
+                </div>
+                <div class="category-card cat-crisis">
+                    Hypertensive Crisis
+                    <div class="range">&ge; 180 / 120 mmHg</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="who-for">
+        <div class="container">
+            <h2>Who Is This For?</h2>
+            <ul>
+                <li>Anyone monitoring their blood pressure at home</li>
+                <li>People managing hypertension or pre-hypertension</li>
+                <li>Patients who want to share readings with their GP</li>
+                <li>People taking blood pressure medication</li>
+                <li>Health-conscious individuals tracking cardiovascular fitness</li>
+                <li>Carers monitoring blood pressure for a family member</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="disclaimer">
+        <p><strong>Medical Disclaimer:</strong> BP Tracker is not a medical device. It is intended for personal tracking purposes only and does not provide medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional about your blood pressure readings. In an emergency, call 999 (UK), 112 (EU), or 911 (US).</p>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="font-size: 1.2em; margin-bottom: 20px;">BP Tracker by FinMedTech</p>
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-use.html">Terms of Use</a>
+                <a href="mailto:support@finmedtech.co.uk">Support</a>
+            </div>
+            <p style="margin-top: 20px; opacity: 0.8;">&copy; 2026 FinMedTech. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
