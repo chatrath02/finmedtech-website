@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — FinMedTech</title>
+    <meta name="description" content="Privacy Policy for FinMedTech applications including TaxNav and BP Tracker">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f8f9fa;
+        }
+        header {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 { font-size: 2em; }
+        header p { opacity: 0.9; margin-top: 6px; }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        h2 { color: #1B5E20; margin-top: 30px; margin-bottom: 15px; font-size: 1.5em; }
+        h3 { color: #2E7D32; margin-top: 20px; margin-bottom: 10px; font-size: 1.15em; }
+        p, li { margin-bottom: 12px; }
+        ul { margin-left: 30px; }
+        a { color: #1B5E20; }
+        .last-updated { color: #666; font-style: italic; margin-bottom: 30px; }
+        .highlight {
+            background: #e8f5e9;
+            border-left: 4px solid #1B5E20;
+            padding: 16px 20px;
+            border-radius: 0 6px 6px 0;
+            margin: 20px 0;
+        }
+        .app-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 16px 0;
+        }
+        .app-section h4 {
+            color: #1B5E20;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+        thead tr { background: #1B5E20; color: white; }
+        th, td { padding: 10px 12px; text-align: left; }
+        tbody tr { border-bottom: 1px solid #e0e0e0; }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #1B5E20;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .container { margin: 20px; padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Privacy Policy</h1>
+        <p>FinMedTech — TaxNav &amp; BP Tracker</p>
+    </header>
+
+    <div class="container">
+        <p class="last-updated">Last updated: March 2026</p>
+
+        <div class="highlight">
+            This privacy policy covers all applications developed and operated by FinMedTech, including <strong>TaxNav</strong> (tax compliance) and <strong>BP Tracker</strong> (blood pressure monitoring). We take the privacy of your financial and health data seriously.
+        </div>
+
+        <h2>1. Who We Are</h2>
+        <p>FinMedTech is operated by Ajay Chatrath. We are the data controller under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+        <p><strong>Email:</strong> <a href="mailto:hello@finmedtech.co.uk">hello@finmedtech.co.uk</a></p>
+
+        <h2>2. What Data We Collect</h2>
+
+        <h3>2.1 Account Data (all apps)</h3>
+        <ul>
+            <li><strong>Email address</strong> — used for account creation, login, and communication</li>
+            <li><strong>Full name</strong> — displayed in the app</li>
+            <li><strong>Password</strong> — stored as a one-way bcrypt hash; we cannot read your password</li>
+        </ul>
+
+        <div class="app-section">
+            <h4>TaxNav — Additional Data</h4>
+            <ul>
+                <li><strong>Business name</strong> — for tax records</li>
+                <li><strong>National Insurance Number</strong> — required for HMRC Making Tax Digital submissions</li>
+                <li><strong>Bank transactions</strong> — synced from your connected bank account via TrueLayer (FCA-regulated)</li>
+                <li><strong>Transaction categorisations</strong> — business vs personal, HMRC expense categories</li>
+                <li><strong>Income and expense data</strong> — calculated from transactions</li>
+                <li><strong>Tax calculations</strong> — Income Tax and National Insurance contributions</li>
+                <li><strong>HMRC OAuth tokens</strong> — to submit quarterly returns on your behalf (encrypted)</li>
+                <li><strong>HMRC Business ID and submission records</strong> — quarterly MTD submission history and references</li>
+            </ul>
+        </div>
+
+        <div class="app-section">
+            <h4>BP Tracker — Additional Data</h4>
+            <ul>
+                <li><strong>Blood pressure readings</strong> — systolic, diastolic, and pulse with date and time</li>
+                <li><strong>Optional notes</strong> — attached to readings</li>
+                <li><strong>Medications</strong> — name, dosage, frequency, start and end dates, reminder times</li>
+                <li><strong>Health profile</strong> — age and gender (used for AI analysis context only; stored locally on your device)</li>
+                <li><strong>Blood pressure goal targets</strong> — stored locally on your device</li>
+                <li><strong>AI chat messages</strong> — messages sent to the AI health assistant and responses</li>
+            </ul>
+        </div>
+
+        <h3>2.2 Technical Data (all apps)</h3>
+        <ul>
+            <li><strong>Authentication tokens</strong> — stored securely on your device; cleared on logout</li>
+            <li><strong>Biometric preference</strong> — enabled/disabled flag stored in device secure storage only; we never receive biometric data itself</li>
+            <li><strong>Device information</strong> — operating system and app version</li>
+        </ul>
+
+        <h3>2.3 What We Do Not Collect</h3>
+        <ul>
+            <li>We do not collect your location</li>
+            <li>We do not collect device identifiers or advertising IDs</li>
+            <li>We do not use analytics or tracking SDKs</li>
+            <li>We do not store bank login credentials (TaxNav uses TrueLayer for secure Open Banking access)</li>
+        </ul>
+
+        <h2>3. How We Use Your Data</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Purpose</th>
+                    <th>Legal Basis (UK GDPR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Email, name, password</td>
+                    <td>Account creation and authentication</td>
+                    <td>Contract (Art. 6(1)(b))</td>
+                </tr>
+                <tr>
+                    <td>Financial data (TaxNav)</td>
+                    <td>Tax calculations, HMRC submissions, expense categorisation</td>
+                    <td>Contract (Art. 6(1)(b))</td>
+                </tr>
+                <tr>
+                    <td>Blood pressure readings (BP Tracker)</td>
+                    <td>Storing, displaying, and syncing your health records</td>
+                    <td>Explicit consent (Art. 9(2)(a))</td>
+                </tr>
+                <tr>
+                    <td>Medications (BP Tracker)</td>
+                    <td>Medication tracking and reminder notifications</td>
+                    <td>Explicit consent (Art. 9(2)(a))</td>
+                </tr>
+                <tr>
+                    <td>AI chat messages (both apps)</td>
+                    <td>Generating AI responses for categorisation or health guidance</td>
+                    <td>Explicit consent (Art. 9(2)(a))</td>
+                </tr>
+                <tr>
+                    <td>HMRC data (TaxNav)</td>
+                    <td>Quarterly MTD submissions on your behalf</td>
+                    <td>Contract (Art. 6(1)(b)) / Legal obligation (Art. 6(1)(c))</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Third-Party Services</h2>
+
+        <h3>4.1 Anthropic (AI Provider — both apps)</h3>
+        <p>Both apps use Anthropic's Claude AI. In TaxNav, only transaction descriptions and amounts are sent (no personal identifiers). In BP Tracker, your message and any blood pressure context you share are sent to generate a response. We do not send your name, email, or account details to Anthropic.</p>
+        <p>Anthropic's privacy policy: <a href="https://www.anthropic.com/privacy" target="_blank">anthropic.com/privacy</a></p>
+
+        <h3>4.2 TrueLayer (TaxNav — Bank Connection)</h3>
+        <p>FCA-regulated Open Banking provider. Connects to your bank account to fetch transactions. We do NOT store your bank login credentials.</p>
+        <p>TrueLayer's privacy policy: <a href="https://truelayer.com/privacy" target="_blank">truelayer.com/privacy</a></p>
+
+        <h3>4.3 HMRC (TaxNav — Tax Submissions)</h3>
+        <p>UK Government tax authority. Receives quarterly MTD submissions on your behalf. We store OAuth tokens to submit on your behalf (encrypted). You can disconnect from HMRC at any time via Settings.</p>
+        <p><a href="https://www.gov.uk/government/organisations/hm-revenue-customs/about/personal-information-charter" target="_blank">HMRC Personal Information Charter</a></p>
+
+        <h3>4.4 Cloud Infrastructure</h3>
+        <p>Your data is stored on encrypted cloud database servers. Data is encrypted in transit (TLS) and at rest. We do not use any third-party analytics, advertising, or tracking services.</p>
+
+        <h3>4.5 Apple / Google</h3>
+        <p>If you make a purchase through either app, payment is processed entirely by Apple (App Store) or Google (Play Store). We do not receive or store your payment card details. We receive only a confirmation of subscription status.</p>
+
+        <h2>5. Data Security</h2>
+        <ul>
+            <li><strong>Encryption in transit</strong> — all communication via HTTPS/TLS</li>
+            <li><strong>Encryption at rest</strong> — database encryption on cloud servers</li>
+            <li><strong>Passwords</strong> — hashed using bcrypt with unique random salt; we cannot recover or read your password</li>
+            <li><strong>On-device storage</strong> — data stored locally in encrypted databases so apps work offline</li>
+            <li><strong>Biometric data</strong> — Face ID and fingerprint data never leaves your device and is handled entirely by the operating system</li>
+            <li><strong>Row-Level Security</strong> — database policies ensure users can only access their own data</li>
+            <li><strong>No credential storage</strong> — bank login credentials are never stored (TaxNav uses TrueLayer tokens)</li>
+            <li><strong>OAuth tokens</strong> — encrypted in the database (TaxNav HMRC integration)</li>
+        </ul>
+
+        <h2>6. Data Retention</h2>
+        <ul>
+            <li><strong>Active accounts</strong> — data retained while your account is active</li>
+            <li><strong>Deleted accounts</strong> — all personal data permanently and immediately deleted from our servers when you use Settings &rarr; Delete Account</li>
+            <li><strong>HMRC submissions (TaxNav)</strong> — retained for 6 years to comply with UK tax record-keeping requirements</li>
+            <li><strong>Bank connection tokens (TaxNav)</strong> — deleted immediately upon disconnection</li>
+            <li><strong>Local data</strong> — cleared from your device at the time of account deletion</li>
+        </ul>
+
+        <h2>7. Your Rights Under UK GDPR</h2>
+        <p>You have the following rights regarding your personal data:</p>
+        <ul>
+            <li><strong>Access</strong> — request a copy of all data we hold about you</li>
+            <li><strong>Rectification</strong> — correct any inaccurate data</li>
+            <li><strong>Erasure</strong> — delete your account and all associated data at any time via Settings &rarr; Delete Account, or by contacting us</li>
+            <li><strong>Restriction</strong> — request we limit how we process your data</li>
+            <li><strong>Portability</strong> — export your data (CSV export in BP Tracker; transaction export in TaxNav)</li>
+            <li><strong>Objection</strong> — object to processing based on legitimate interests</li>
+            <li><strong>Withdraw consent</strong> — you may withdraw consent at any time by deleting your account or disconnecting services</li>
+        </ul>
+        <p>To exercise any right, contact us at <a href="mailto:hello@finmedtech.co.uk">hello@finmedtech.co.uk</a>. We will respond within 30 days.</p>
+        <p>You also have the right to lodge a complaint with the UK Information Commissioner's Office (ICO): <a href="https://ico.org.uk" target="_blank">ico.org.uk</a>.</p>
+
+        <h2>8. Children</h2>
+        <p>Our applications are not directed at children under 18. We do not knowingly collect personal data from anyone under 18. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.</p>
+
+        <h2>9. International Data Transfers</h2>
+        <p>Your data is primarily stored in the UK/EU. Some third-party services (Anthropic) may process data outside the UK/EU with appropriate safeguards in place.</p>
+
+        <h2>10. Changes to This Policy</h2>
+        <p>We may update this policy from time to time. When we do, we will update the "Last updated" date at the top and, for material changes, notify you via the app. Continued use after changes constitutes acceptance of the updated policy.</p>
+
+        <h2>11. Contact</h2>
+        <p>For any privacy questions, data requests, or concerns:</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:hello@finmedtech.co.uk">hello@finmedtech.co.uk</a></li>
+            <li><strong>Company:</strong> FinMedTech</li>
+            <li><strong>Website:</strong> <a href="https://finmedtech.co.uk">finmedtech.co.uk</a></li>
+        </ul>
+
+        <a href="/" class="back-link">&larr; Back to FinMedTech</a>
+    </div>
+</body>
+</html>
