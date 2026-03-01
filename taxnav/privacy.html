@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — TaxNav</title>
+    <meta name="description" content="Privacy Policy for TaxNav Making Tax Digital app by FinMedTech">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f8f9fa;
+        }
+        header {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 { font-size: 2em; }
+        header p { opacity: 0.9; margin-top: 6px; }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        h2 { color: #1B5E20; margin-top: 30px; margin-bottom: 15px; font-size: 1.5em; }
+        h3 { color: #2E7D32; margin-top: 20px; margin-bottom: 10px; font-size: 1.15em; }
+        p, li { margin-bottom: 12px; }
+        ul { margin-left: 30px; }
+        a { color: #1B5E20; }
+        .last-updated { color: #666; font-style: italic; margin-bottom: 30px; }
+        .highlight {
+            background: #e8f5e9;
+            border-left: 4px solid #1B5E20;
+            padding: 16px 20px;
+            border-radius: 0 6px 6px 0;
+            margin: 20px 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #1B5E20;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .container { margin: 20px; padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav style="background: #143d1a; padding: 10px 20px; text-align: left;">
+        <a href="/" style="color: white; text-decoration: none; font-weight: 500; font-size: 0.95em;">&larr; Back to FinMedTech</a>
+    </nav>
+
+    <header>
+        <h1>Privacy Policy</h1>
+        <p>TaxNav by FinMedTech</p>
+    </header>
+
+    <div class="container">
+        <p class="last-updated">Last updated: March 2026</p>
+
+        <div class="highlight">
+            TaxNav helps UK sole traders manage Making Tax Digital compliance. We take the privacy of your financial data seriously. This policy explains exactly what we collect, why, and how it is protected.
+        </div>
+
+        <h2>1. Who We Are</h2>
+        <p>TaxNav is developed and operated by FinMedTech (Ajay Chatrath). We are the data controller under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+        <p><strong>Email:</strong> <a href="mailto:hello@finmedtech.co.uk">hello@finmedtech.co.uk</a></p>
+
+        <h2>2. What Data We Collect</h2>
+
+        <h3>2.1 Personal Information</h3>
+        <ul>
+            <li><strong>Email address</strong> — for account creation and communication</li>
+            <li><strong>Full name</strong> — for profile identification</li>
+            <li><strong>Business name</strong> — for tax records</li>
+            <li><strong>National Insurance Number</strong> — required for HMRC Making Tax Digital submissions</li>
+            <li><strong>Password</strong> — stored as a one-way bcrypt hash; we cannot read your password</li>
+        </ul>
+
+        <h3>2.2 Financial Information</h3>
+        <ul>
+            <li><strong>Bank transactions</strong> — synced from your connected bank account via TrueLayer (FCA-regulated)</li>
+            <li><strong>Transaction categorisations</strong> — business vs personal, HMRC expense categories</li>
+            <li><strong>Income and expense data</strong> — calculated from transactions</li>
+            <li><strong>Tax calculations</strong> — Income Tax and National Insurance contributions</li>
+        </ul>
+
+        <h3>2.3 HMRC Integration Data</h3>
+        <ul>
+            <li><strong>HMRC OAuth tokens</strong> — to submit quarterly returns on your behalf (encrypted)</li>
+            <li><strong>HMRC Business ID</strong> — fetched from HMRC Business Details API</li>
+            <li><strong>Submission records</strong> — quarterly MTD submission history and HMRC references</li>
+        </ul>
+
+        <h3>2.4 Technical Data</h3>
+        <ul>
+            <li><strong>Authentication tokens</strong> — stored securely on your device; cleared on logout</li>
+            <li><strong>Biometric preference</strong> — enabled/disabled flag stored in device secure storage only; we never receive biometric data itself</li>
+            <li><strong>Device information</strong> — operating system and app version</li>
+        </ul>
+
+        <h3>2.5 What We Do Not Collect</h3>
+        <ul>
+            <li>We do not collect your location</li>
+            <li>We do not collect device identifiers or advertising IDs</li>
+            <li>We do not use analytics or tracking SDKs</li>
+            <li>We do not store bank login credentials (TrueLayer handles secure Open Banking access)</li>
+        </ul>
+
+        <h2>3. How We Use Your Data</h2>
+
+        <p>We use the collected data for the following purposes:</p>
+        <ul>
+            <li><strong>Provide and maintain our service</strong> — account management, transaction sync, categorisation</li>
+            <li><strong>Calculate tax liability</strong> — Income Tax and National Insurance calculations based on UK tax rates</li>
+            <li><strong>Submit to HMRC</strong> — quarterly Making Tax Digital submissions on your behalf</li>
+            <li><strong>AI categorisation</strong> — improve expense categorisation accuracy using Claude AI (only transaction descriptions and amounts are sent; no personal identifiers)</li>
+            <li><strong>Customer support</strong> — respond to your requests and provide assistance</li>
+            <li><strong>Comply with legal obligations</strong> — HMRC reporting requirements, data protection laws</li>
+        </ul>
+
+        <h2>4. Third-Party Services</h2>
+
+        <h3>4.1 TrueLayer (Bank Connection)</h3>
+        <ul>
+            <li>FCA-regulated Open Banking provider</li>
+            <li>Connects to your bank account to fetch transactions</li>
+            <li>We do NOT store your bank login credentials</li>
+            <li>Privacy policy: <a href="https://truelayer.com/privacy" target="_blank">truelayer.com/privacy</a></li>
+        </ul>
+
+        <h3>4.2 HMRC (Tax Submissions)</h3>
+        <ul>
+            <li>UK Government tax authority</li>
+            <li>Receives quarterly MTD submissions on your behalf</li>
+            <li>We store OAuth tokens to submit on your behalf (encrypted)</li>
+            <li>You can disconnect from HMRC at any time via Settings</li>
+            <li><a href="https://www.gov.uk/government/organisations/hm-revenue-customs/about/personal-information-charter" target="_blank">HMRC Personal Information Charter</a></li>
+        </ul>
+
+        <h3>4.3 Anthropic (AI Categorisation)</h3>
+        <ul>
+            <li>Provides Claude AI for expense categorisation suggestions</li>
+            <li>Only transaction descriptions and amounts are sent (no personal identifiers)</li>
+            <li>Privacy policy: <a href="https://www.anthropic.com/privacy" target="_blank">anthropic.com/privacy</a></li>
+        </ul>
+
+        <h3>4.4 Supabase (Cloud Infrastructure)</h3>
+        <ul>
+            <li>Stores your profile, transactions, and submissions</li>
+            <li>Manages user authentication</li>
+            <li>Data encrypted at rest and in transit (HTTPS)</li>
+            <li>Privacy policy: <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></li>
+        </ul>
+
+        <h3>4.5 Apple / Google</h3>
+        <p>If you make a purchase through the app, payment is processed entirely by Apple (App Store) or Google (Play Store). We do not receive or store your payment card details. We receive only a confirmation of subscription status.</p>
+
+        <h2>5. Data Security</h2>
+        <ul>
+            <li><strong>Encryption in transit</strong> — all data transmitted via HTTPS/TLS</li>
+            <li><strong>Encryption at rest</strong> — database encryption via Supabase</li>
+            <li><strong>Passwords</strong> — hashed using bcrypt with unique random salt</li>
+            <li><strong>Biometric authentication</strong> — Face ID/Touch ID for app access</li>
+            <li><strong>Secure token storage</strong> — OAuth tokens encrypted in database</li>
+            <li><strong>Row-Level Security (RLS)</strong> — database policies ensure users only access their own data</li>
+            <li><strong>No credential storage</strong> — we do NOT store bank login credentials</li>
+        </ul>
+
+        <h2>6. Data Retention</h2>
+        <ul>
+            <li><strong>Active accounts</strong> — data retained while your account is active</li>
+            <li><strong>Deleted accounts</strong> — all personal data permanently deleted from our servers when you use Settings &rarr; Delete Account</li>
+            <li><strong>HMRC submissions</strong> — retained for 6 years to comply with UK tax record-keeping requirements</li>
+            <li><strong>Bank connection tokens</strong> — deleted immediately upon disconnection</li>
+        </ul>
+
+        <h2>7. Your Rights Under UK GDPR</h2>
+        <p>You have the following rights regarding your personal data:</p>
+        <ul>
+            <li><strong>Access</strong> — request a copy of all data we hold about you</li>
+            <li><strong>Rectification</strong> — correct any inaccurate data</li>
+            <li><strong>Erasure</strong> — delete your account and all associated data at any time via Settings &rarr; Delete Account, or by contacting us</li>
+            <li><strong>Restriction</strong> — request we limit how we process your data</li>
+            <li><strong>Portability</strong> — export your data in a machine-readable format</li>
+            <li><strong>Objection</strong> — object to processing of your personal data</li>
+            <li><strong>Withdraw consent</strong> — disconnect bank or HMRC at any time</li>
+        </ul>
+        <p>To exercise any right, contact us at <a href="mailto:hello@finmedtech.co.uk">hello@finmedtech.co.uk</a>. We will respond within 30 days.</p>
+        <p>You also have the right to lodge a complaint with the UK Information Commissioner's Office (ICO): <a href="https://ico.org.uk" target="_blank">ico.org.uk</a>.</p>
+
+        <h2>8. Children</h2>
+        <p>TaxNav is not intended for use by individuals under 18. We do not knowingly collect personal data from anyone under 18. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.</p>
+
+        <h2>9. International Data Transfers</h2>
+        <p>Your data is primarily stored in the UK/EU via Supabase. Some third-party services (Anthropic) may process data outside the UK/EU with appropriate safeguards in place.</p>
+
+        <h2>10. Changes to This Policy</h2>
+        <p>We may update this policy from time to time. When we do, we will update the "Last updated" date at the top and, for material changes, notify you via the app. Continued use of TaxNav after changes constitutes acceptance of the updated policy.</p>
+
+        <h2>11. Contact</h2>
+        <p>For any privacy questions, data requests, or concerns:</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:hello@finmedtech.co.uk">hello@finmedtech.co.uk</a></li>
+            <li><strong>Company:</strong> FinMedTech</li>
+            <li><strong>Website:</strong> <a href="https://finmedtech.co.uk">finmedtech.co.uk</a></li>
+        </ul>
+
+        <a href="/taxnav/" class="back-link">&larr; Back to TaxNav</a>
+    </div>
+</body>
+</html>
