@@ -66,7 +66,7 @@
     </header>
 
     <div class="container">
-        <p class="last-updated">Last updated: March 2026</p>
+        <p class="last-updated">Last updated: March 22, 2026</p>
 
         <div class="highlight">
             TaxNav helps UK sole traders manage Making Tax Digital compliance. We take the privacy of your financial data seriously. This policy explains exactly what we collect, why, and how it is protected.
@@ -89,7 +89,8 @@
 
         <h3>2.2 Financial Information</h3>
         <ul>
-            <li><strong>Bank transactions</strong> — synced from your connected bank account via TrueLayer (FCA-regulated)</li>
+            <li><strong>Bank transactions</strong> — imported via PDF upload, CSV import, or manual entry</li>
+            <li><strong>PDF bank statements</strong> — uploaded files are processed via AWS Textract and temporarily stored; automatically deleted after parsing</li>
             <li><strong>Transaction categorisations</strong> — business vs personal, HMRC expense categories</li>
             <li><strong>Income and expense data</strong> — calculated from transactions</li>
             <li><strong>Tax calculations</strong> — Income Tax and National Insurance contributions</li>
@@ -107,6 +108,7 @@
             <li><strong>Authentication tokens</strong> — stored securely on your device; cleared on logout</li>
             <li><strong>Biometric preference</strong> — enabled/disabled flag stored in device secure storage only; we never receive biometric data itself</li>
             <li><strong>Device information</strong> — operating system and app version</li>
+            <li><strong>Subscription status</strong> — whether you have an active Premium or Pro subscription (for freemium features)</li>
         </ul>
 
         <h3>2.5 What We Do Not Collect</h3>
@@ -114,29 +116,32 @@
             <li>We do not collect your location</li>
             <li>We do not collect device identifiers or advertising IDs</li>
             <li>We do not use analytics or tracking SDKs</li>
-            <li>We do not store bank login credentials (TrueLayer handles secure Open Banking access)</li>
+            <li>We do not store bank login credentials (you upload PDF statements directly)</li>
+            <li>We do not permanently store PDF files (deleted after parsing)</li>
         </ul>
 
         <h2>3. How We Use Your Data</h2>
 
         <p>We use the collected data for the following purposes:</p>
         <ul>
-            <li><strong>Provide and maintain our service</strong> — account management, transaction sync, categorisation</li>
+            <li><strong>Provide and maintain our service</strong> — account management, transaction import, categorisation</li>
+            <li><strong>Process PDF bank statements</strong> — extract transactions from uploaded PDFs using AWS Textract</li>
             <li><strong>Calculate tax liability</strong> — Income Tax and National Insurance calculations based on UK tax rates</li>
             <li><strong>Submit to HMRC</strong> — quarterly Making Tax Digital submissions on your behalf</li>
-            <li><strong>AI categorisation</strong> — improve expense categorisation accuracy using Claude AI (only transaction descriptions and amounts are sent; no personal identifiers)</li>
+            <li><strong>AI categorisation</strong> — improve expense categorisation accuracy using Anthropic Claude (only transaction descriptions and amounts are sent; no personal identifiers)</li>
+            <li><strong>Manage subscriptions</strong> — process Premium/Pro tier subscriptions and apply usage limits (PDF imports, AI categorizations)</li>
             <li><strong>Customer support</strong> — respond to your requests and provide assistance</li>
             <li><strong>Comply with legal obligations</strong> — HMRC reporting requirements, data protection laws</li>
         </ul>
 
         <h2>4. Third-Party Services</h2>
 
-        <h3>4.1 TrueLayer (Bank Connection)</h3>
+        <h3>4.1 Amazon Web Services (PDF Processing)</h3>
         <ul>
-            <li>FCA-regulated Open Banking provider</li>
-            <li>Connects to your bank account to fetch transactions</li>
-            <li>We do NOT store your bank login credentials</li>
-            <li>Privacy policy: <a href="https://truelayer.com/privacy" target="_blank">truelayer.com/privacy</a></li>
+            <li>AWS Textract processes uploaded PDF bank statements</li>
+            <li>Extracts transaction data from PDF documents</li>
+            <li>PDFs are temporarily stored during processing and automatically deleted after extraction</li>
+            <li>Privacy policy: <a href="https://aws.amazon.com/privacy" target="_blank">aws.amazon.com/privacy</a></li>
         </ul>
 
         <h3>4.2 HMRC (Tax Submissions)</h3>
@@ -174,7 +179,8 @@
             <li><strong>Biometric authentication</strong> — Face ID/Touch ID for app access</li>
             <li><strong>Secure token storage</strong> — OAuth tokens encrypted in database</li>
             <li><strong>Row-Level Security (RLS)</strong> — database policies ensure users only access their own data</li>
-            <li><strong>No credential storage</strong> — we do NOT store bank login credentials</li>
+            <li><strong>PDF processing security</strong> — uploaded PDFs are processed in isolated AWS environment and automatically deleted after extraction</li>
+            <li><strong>No credential storage</strong> — we do NOT store bank login credentials; you upload PDF statements directly</li>
         </ul>
 
         <h2>6. Data Retention</h2>
@@ -182,7 +188,8 @@
             <li><strong>Active accounts</strong> — data retained while your account is active</li>
             <li><strong>Deleted accounts</strong> — all personal data permanently deleted from our servers when you use Settings &rarr; Delete Account</li>
             <li><strong>HMRC submissions</strong> — retained for 6 years to comply with UK tax record-keeping requirements</li>
-            <li><strong>Bank connection tokens</strong> — deleted immediately upon disconnection</li>
+            <li><strong>PDF files</strong> — automatically deleted immediately after transaction extraction (not stored permanently)</li>
+            <li><strong>Subscription data</strong> — retained while subscription is active; deleted 30 days after cancellation</li>
         </ul>
 
         <h2>7. Your Rights Under UK GDPR</h2>
@@ -194,21 +201,29 @@
             <li><strong>Restriction</strong> — request we limit how we process your data</li>
             <li><strong>Portability</strong> — export your data in a machine-readable format</li>
             <li><strong>Objection</strong> — object to processing of your personal data</li>
-            <li><strong>Withdraw consent</strong> — disconnect bank or HMRC at any time</li>
+            <li><strong>Withdraw consent</strong> — disconnect HMRC or cancel subscription at any time</li>
         </ul>
         <p>To exercise any right, contact us at <a href="mailto:hello@finmedtech.co.uk">hello@finmedtech.co.uk</a>. We will respond within 30 days.</p>
         <p>You also have the right to lodge a complaint with the UK Information Commissioner's Office (ICO): <a href="https://ico.org.uk" target="_blank">ico.org.uk</a>.</p>
 
-        <h2>8. Children</h2>
+        <h2>8. Freemium Model & Usage Limits</h2>
+        <p>TaxNav offers both free and premium tiers. We track the following to enforce usage limits:</p>
+        <ul>
+            <li><strong>Free tier users</strong> — number of PDF imports per month (2 PDFs/month limit) and AI categorizations per month (50/month limit)</li>
+            <li><strong>Premium/Pro users</strong> — subscription status and renewal date</li>
+        </ul>
+        <p>Usage limits reset monthly. We do not sell or share your usage data with third parties.</p>
+
+        <h2>9. Children</h2>
         <p>TaxNav is not intended for use by individuals under 18. We do not knowingly collect personal data from anyone under 18. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.</p>
 
-        <h2>9. International Data Transfers</h2>
-        <p>Your data is primarily stored in the UK/EU via Supabase. Some third-party services (Anthropic) may process data outside the UK/EU with appropriate safeguards in place.</p>
+        <h2>10. International Data Transfers</h2>
+        <p>Your data is primarily stored in the UK/EU via Supabase. Some third-party services (OpenAI, AWS) may process data outside the UK/EU with appropriate safeguards in place (Standard Contractual Clauses and adequacy decisions).</p>
 
-        <h2>10. Changes to This Policy</h2>
+        <h2>11. Changes to This Policy</h2>
         <p>We may update this policy from time to time. When we do, we will update the "Last updated" date at the top and, for material changes, notify you via the app. Continued use of TaxNav after changes constitutes acceptance of the updated policy.</p>
 
-        <h2>11. Contact</h2>
+        <h2>12. Contact</h2>
         <p>For any privacy questions, data requests, or concerns:</p>
         <ul>
             <li><strong>Email:</strong> <a href="mailto:hello@finmedtech.co.uk">hello@finmedtech.co.uk</a></li>

@@ -66,7 +66,7 @@
     </header>
 
     <div class="container">
-        <p class="last-updated">Last updated: March 2026 &nbsp;|&nbsp; Governing law: England and Wales</p>
+        <p class="last-updated">Last updated: March 22, 2026 &nbsp;|&nbsp; Governing law: England and Wales</p>
 
         <p>These Terms of Service ("Terms") govern your use of the TaxNav mobile application ("Service") operated by FinMedTech ("we", "us", "our").</p>
         <p>By creating an account or using TaxNav, you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
@@ -83,10 +83,11 @@
         <h2>2. Description of Service</h2>
         <p>TaxNav is a mobile application designed to help UK sole traders and self-employed individuals:</p>
         <ul>
-            <li>Connect their UK bank accounts to sync transactions</li>
+            <li>Import transactions via PDF bank statements, CSV files, or manual entry</li>
             <li>Categorise business expenses according to HMRC categories</li>
             <li>Calculate Income Tax and National Insurance contributions</li>
             <li>Submit quarterly Making Tax Digital (MTD) returns to HMRC</li>
+            <li>Submit End of Period Statement (EOPS) and Final Declaration to complete tax year</li>
             <li>Track tax liabilities and submission history</li>
         </ul>
 
@@ -111,7 +112,7 @@
         </ul>
 
         <h3>AI Disclaimer</h3>
-        <p>TaxNav uses AI (Claude by Anthropic) to suggest expense categories. AI suggestions are not guarantees of correctness. <strong>You must review and approve all categorisations</strong> before submitting to HMRC. The AI has no knowledge of your complete tax situation.</p>
+        <p>TaxNav uses AI (Anthropic Claude) to suggest expense categories. AI suggestions are not guarantees of correctness. <strong>You must review and approve all categorisations</strong> before submitting to HMRC. The AI has no knowledge of your complete tax situation.</p>
 
         <h2>4. User Responsibilities</h2>
 
@@ -160,10 +161,7 @@
 
         <h2>6. Third-Party Services</h2>
 
-        <h3>6.1 TrueLayer (Bank Connection)</h3>
-        <p>By connecting your bank account, you authorise TrueLayer (an FCA-regulated Open Banking provider) to access your transaction data. You should review TrueLayer's terms and privacy policy.</p>
-
-        <h3>6.2 HMRC Integration</h3>
+        <h3>6.1 HMRC Integration</h3>
         <p>By connecting to HMRC, you authorise TaxNav to:</p>
         <ul>
             <li>Access your HMRC Business Details</li>
@@ -172,8 +170,8 @@
         </ul>
         <p>You can disconnect from HMRC at any time via Settings.</p>
 
-        <h3>6.3 Anthropic Claude (AI Categorisation)</h3>
-        <p>AI suggestions are not guarantees of correctness. You must review and accept responsibility for all AI-assisted outputs.</p>
+        <h3>6.2 Anthropic (AI Categorisation)</h3>
+        <p>AI expense categorisation suggestions are provided by Anthropic Claude. AI suggestions are not guarantees of correctness. You must review and accept responsibility for all AI-assisted categorisations.</p>
 
         <h2>7. Fees and Payment</h2>
         <p>Some features of TaxNav may require a paid subscription. Payments are processed entirely by Apple (App Store) or Google (Play Store). We do not receive or store your payment card details. Subscription terms and pricing are displayed in the app before purchase.</p>
@@ -196,7 +194,8 @@
         <ul>
             <li>We are NOT liable for incorrect tax calculations resulting from inaccurate data entry</li>
             <li>We are NOT liable for HMRC penalties or interest charges</li>
-            <li>We are NOT liable for third-party service failures (TrueLayer, HMRC API downtime)</li>
+            <li>We are NOT liable for third-party service failures (HMRC API downtime, AWS service interruptions)</li>
+            <li>We are NOT liable for incorrect AI categorisation suggestions</li>
             <li>Our total liability shall not exceed the fees you paid in the last 12 months (if applicable)</li>
         </ul>
 
@@ -214,7 +213,8 @@
         <p>You can delete your account at any time via Settings &rarr; Delete Account. Upon deletion:</p>
         <ul>
             <li>All personal data will be permanently deleted from our servers</li>
-            <li>Bank connections will be immediately disconnected</li>
+            <li>HMRC connection will be immediately disconnected</li>
+            <li>All transaction data will be permanently deleted</li>
             <li>HMRC submission records may be retained for 6 years to comply with UK tax record-keeping requirements</li>
         </ul>
 
