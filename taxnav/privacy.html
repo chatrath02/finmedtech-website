@@ -90,7 +90,7 @@
         <h3>2.2 Financial Information</h3>
         <ul>
             <li><strong>Bank transactions</strong> — imported via PDF upload, CSV import, or manual entry</li>
-            <li><strong>PDF bank statements</strong> — uploaded files are processed via AWS Textract and temporarily stored; automatically deleted after parsing</li>
+            <li><strong>PDF bank statements</strong> — uploaded files are processed using dual-engine verification (pdfplumber + Claude Vision) and temporarily stored; automatically deleted after parsing</li>
             <li><strong>Transaction categorisations</strong> — business vs personal, HMRC expense categories</li>
             <li><strong>Income and expense data</strong> — calculated from transactions</li>
             <li><strong>Tax calculations</strong> — Income Tax and National Insurance contributions</li>
@@ -125,7 +125,7 @@
         <p>We use the collected data for the following purposes:</p>
         <ul>
             <li><strong>Provide and maintain our service</strong> — account management, transaction import, categorisation</li>
-            <li><strong>Process PDF bank statements</strong> — extract transactions from uploaded PDFs using AWS Textract</li>
+            <li><strong>Process PDF bank statements</strong> — extract transactions from uploaded PDFs using dual-engine verification (pdfplumber for text extraction, Claude Vision for visual verification)</li>
             <li><strong>Calculate tax liability</strong> — Income Tax and National Insurance calculations based on UK tax rates</li>
             <li><strong>Submit to HMRC</strong> — quarterly Making Tax Digital submissions on your behalf</li>
             <li><strong>AI categorisation</strong> — improve expense categorisation accuracy using Anthropic Claude (only transaction descriptions and amounts are sent; no personal identifiers)</li>
@@ -180,7 +180,7 @@
             <li><strong>Biometric authentication</strong> — Face ID/Touch ID for app access</li>
             <li><strong>Secure token storage</strong> — OAuth tokens encrypted in database</li>
             <li><strong>Row-Level Security (RLS)</strong> — database policies ensure users only access their own data</li>
-            <li><strong>PDF processing security</strong> — uploaded PDFs are processed in isolated AWS environment and automatically deleted after extraction</li>
+            <li><strong>PDF processing security</strong> — uploaded PDFs are processed in isolated Supabase Edge Function environment and automatically deleted after extraction</li>
             <li><strong>No credential storage</strong> — we do NOT store bank login credentials; you upload PDF statements directly</li>
         </ul>
 
