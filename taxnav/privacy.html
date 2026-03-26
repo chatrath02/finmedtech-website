@@ -90,7 +90,7 @@
         <h3>2.2 Financial Information</h3>
         <ul>
             <li><strong>Bank transactions</strong> — imported via PDF upload, CSV import, or manual entry</li>
-            <li><strong>PDF bank statements</strong> — uploaded files are processed using dual-engine verification (pdfplumber + Claude Vision) and temporarily stored; automatically deleted after parsing</li>
+            <li><strong>PDF bank statements</strong> — uploaded files are processed using dual-engine verification for accuracy and temporarily stored; automatically deleted after parsing</li>
             <li><strong>Transaction categorisations</strong> — business vs personal, HMRC expense categories</li>
             <li><strong>Income and expense data</strong> — calculated from transactions</li>
             <li><strong>Tax calculations</strong> — Income Tax and National Insurance contributions</li>
@@ -125,7 +125,7 @@
         <p>We use the collected data for the following purposes:</p>
         <ul>
             <li><strong>Provide and maintain our service</strong> — account management, transaction import, categorisation</li>
-            <li><strong>Process PDF bank statements</strong> — extract transactions from uploaded PDFs using dual-engine verification (pdfplumber for text extraction, Claude Vision for visual verification)</li>
+            <li><strong>Process PDF bank statements</strong> — extract transactions from uploaded PDFs using dual-engine verification for accuracy</li>
             <li><strong>Calculate tax liability</strong> — Income Tax and National Insurance calculations based on UK tax rates</li>
             <li><strong>Submit to HMRC</strong> — quarterly Making Tax Digital submissions on your behalf</li>
             <li><strong>AI categorisation</strong> — improve expense categorisation accuracy using Anthropic Claude (only transaction descriptions and amounts are sent; no personal identifiers)</li>
@@ -136,11 +136,10 @@
 
         <h2>4. Third-Party Services</h2>
 
-        <h3>4.1 PDF Processing (Dual-Engine Verification)</h3>
+        <h3>4.1 PDF Processing</h3>
         <ul>
-            <li>PDF bank statements are processed using two independent engines for accuracy</li>
-            <li><strong>pdfplumber</strong> — extracts transaction data from PDF text layers</li>
-            <li><strong>Anthropic Claude Vision</strong> — verifies extracted data by reading the PDF visually</li>
+            <li>PDF bank statements are processed using dual-engine verification for accuracy</li>
+            <li>Text extraction and AI visual verification ensure reliable transaction data</li>
             <li>Both engines must agree for high-confidence results; discrepancies are flagged for review</li>
             <li>PDFs are temporarily stored during processing and automatically deleted after extraction</li>
         </ul>
