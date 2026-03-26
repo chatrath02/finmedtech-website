@@ -136,12 +136,13 @@
 
         <h2>4. Third-Party Services</h2>
 
-        <h3>4.1 Amazon Web Services (PDF Processing)</h3>
+        <h3>4.1 PDF Processing (Dual-Engine Verification)</h3>
         <ul>
-            <li>AWS Textract processes uploaded PDF bank statements</li>
-            <li>Extracts transaction data from PDF documents</li>
+            <li>PDF bank statements are processed using two independent engines for accuracy</li>
+            <li><strong>pdfplumber</strong> — extracts transaction data from PDF text layers</li>
+            <li><strong>Anthropic Claude Vision</strong> — verifies extracted data by reading the PDF visually</li>
+            <li>Both engines must agree for high-confidence results; discrepancies are flagged for review</li>
             <li>PDFs are temporarily stored during processing and automatically deleted after extraction</li>
-            <li>Privacy policy: <a href="https://aws.amazon.com/privacy" target="_blank">aws.amazon.com/privacy</a></li>
         </ul>
 
         <h3>4.2 HMRC (Tax Submissions)</h3>
@@ -218,7 +219,7 @@
         <p>TaxNav is not intended for use by individuals under 18. We do not knowingly collect personal data from anyone under 18. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.</p>
 
         <h2>10. International Data Transfers</h2>
-        <p>Your data is primarily stored in the UK/EU via Supabase. Some third-party services (OpenAI, AWS) may process data outside the UK/EU with appropriate safeguards in place (Standard Contractual Clauses and adequacy decisions).</p>
+        <p>Your data is primarily stored in the UK/EU via Supabase. Some third-party services (Anthropic) may process data outside the UK/EU with appropriate safeguards in place (Standard Contractual Clauses and adequacy decisions).</p>
 
         <h2>11. Changes to This Policy</h2>
         <p>We may update this policy from time to time. When we do, we will update the "Last updated" date at the top and, for material changes, notify you via the app. Continued use of TaxNav after changes constitutes acceptance of the updated policy.</p>
