@@ -175,10 +175,10 @@
         <ul>
             <li><strong>Encryption in transit</strong> — all data transmitted via HTTPS/TLS</li>
             <li><strong>Encryption at rest</strong> — database encryption via Supabase</li>
-            <li><strong>Passwords</strong> — hashed using bcrypt with unique random salt</li>
+            <li><strong>Passwords</strong> — stored using industry-standard one-way hashing (we cannot read your password)</li>
             <li><strong>Biometric authentication</strong> — Face ID/Touch ID for app access</li>
             <li><strong>Secure token storage</strong> — OAuth tokens encrypted in database</li>
-            <li><strong>Row-Level Security (RLS)</strong> — database policies ensure users only access their own data</li>
+            <li><strong>Database isolation</strong> — strict access controls ensure users can only access their own data</li>
             <li><strong>PDF processing security</strong> — uploaded PDFs are processed in isolated Supabase Edge Function environment and automatically deleted after extraction</li>
             <li><strong>No credential storage</strong> — we do NOT store bank login credentials; you upload PDF statements directly</li>
         </ul>
