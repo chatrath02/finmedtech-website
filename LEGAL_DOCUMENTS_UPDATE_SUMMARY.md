@@ -9,7 +9,7 @@
 
 ## Changes Made
 
-### 1. Privacy Policy (`landing-page/taxnav/privacy.html`)
+### 1. Privacy Policy (`landing-page/taxswipe/privacy.html`)
 
 #### ✅ Last Updated Date
 - **Changed:** "Last updated: March 22, 2026" (already correct)
@@ -28,7 +28,7 @@
 
 ---
 
-### 2. Terms of Service (`landing-page/taxnav/terms.html`)
+### 2. Terms of Service (`landing-page/taxswipe/terms.html`)
 
 #### ✅ Last Updated Date
 - **OLD:** "Last updated: March 2026"
@@ -117,19 +117,19 @@
 
 ### Updated Files:
 
-1. `/Users/ajaychatrath/Desktop/Financial/TaxNav/landing-page/taxnav/privacy.html`
+1. `/Users/ajaychatrath/Desktop/Financial/TaxSwipe/landing-page/taxswipe/privacy.html`
    - 2 changes (AI provider corrections)
 
-2. `/Users/ajaychatrath/Desktop/Financial/TaxNav/landing-page/taxnav/terms.html`
+2. `/Users/ajaychatrath/Desktop/Financial/TaxSwipe/landing-page/taxswipe/terms.html`
    - 8 changes (date, description, AI provider, TrueLayer removal, liability, deletion)
 
 ### Related Files (Not Updated):
 
-1. `/Users/ajaychatrath/Desktop/Financial/TaxNav/landing-page/privacy-policy.html`
+1. `/Users/ajaychatrath/Desktop/Financial/TaxSwipe/landing-page/privacy-policy.html`
    - Parent page linking to app-specific policies
    - No changes needed
 
-2. `/Users/ajaychatrath/Desktop/Financial/TaxNav/landing-page/terms-of-use.html`
+2. `/Users/ajaychatrath/Desktop/Financial/TaxSwipe/landing-page/terms-of-use.html`
    - General FinMedTech terms
    - No changes needed
 
@@ -153,20 +153,20 @@
 **If hosting on Vercel (as indicated by vercel.json):**
 
 ```bash
-cd /Users/ajaychatrath/Desktop/Financial/TaxNav/landing-page
+cd /Users/ajaychatrath/Desktop/Financial/TaxSwipe/landing-page
 
 # Deploy to production
 vercel --prod
 
 # Or if using Git deployment:
-git add taxnav/privacy.html taxnav/terms.html
+git add taxswipe/privacy.html taxswipe/terms.html
 git commit -m "Update legal docs: Remove TrueLayer, correct AI provider to Anthropic Claude"
 git push origin main
 ```
 
 **URLs After Deployment:**
-- Privacy Policy: `https://yourdomain.com/taxnav/privacy`
-- Terms of Service: `https://yourdomain.com/taxnav/terms`
+- Privacy Policy: `https://yourdomain.com/taxswipe/privacy`
+- Terms of Service: `https://yourdomain.com/taxswipe/terms`
 
 ### 📱 Mobile App Update:
 
@@ -178,11 +178,11 @@ Ensure legal document links point to the correct URLs:
 // Settings screen should have links like:
 <List.Item
   title="Privacy Policy"
-  onPress={() => Linking.openURL('https://yourdomain.com/taxnav/privacy')}
+  onPress={() => Linking.openURL('https://yourdomain.com/taxswipe/privacy')}
 />
 <List.Item
   title="Terms of Service"
-  onPress={() => Linking.openURL('https://yourdomain.com/taxnav/terms')}
+  onPress={() => Linking.openURL('https://yourdomain.com/taxswipe/terms')}
 />
 ```
 
@@ -239,16 +239,16 @@ Ensure legal document links point to the correct URLs:
 
 ### 1. Deploy Immediately ✅
 Legal documents are now accurate and ready for production. Deploy to make them publicly accessible at:
-- `https://yourdomain.com/taxnav/privacy`
-- `https://yourdomain.com/taxnav/terms`
+- `https://yourdomain.com/taxswipe/privacy`
+- `https://yourdomain.com/taxswipe/terms`
 
 ### 2. Update Mobile App Links
 Ensure Settings screen links point to the deployed URLs.
 
 ### 3. App Store Submission
 Use these URLs in App Store Connect and Google Play Console:
-- Privacy Policy URL: `https://yourdomain.com/taxnav/privacy`
-- Terms of Service URL: `https://yourdomain.com/taxnav/terms`
+- Privacy Policy URL: `https://yourdomain.com/taxswipe/privacy`
+- Terms of Service URL: `https://yourdomain.com/taxswipe/terms`
 
 ### 4. User Communication
 No need to notify existing users of these changes since:

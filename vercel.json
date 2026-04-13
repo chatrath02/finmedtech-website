@@ -2,5 +2,11 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "buildCommand": null,
-  "framework": null
+  "framework": null,
+  "redirects": [
+    { "source": "/taxnav", "destination": "/taxswipe", "permanent": true },
+    { "source": "/taxnav/privacy", "destination": "/taxswipe/privacy", "permanent": true },
+    { "source": "/taxnav/terms", "destination": "/taxswipe/terms", "permanent": true },
+    { "source": "/taxnav/:path*", "destination": "/taxswipe/:path*", "permanent": true }
+  ]
 }

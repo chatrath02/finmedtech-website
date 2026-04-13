@@ -1,14 +1,14 @@
 # FinMedTech Landing Pages
 
-This folder contains the complete website for **finmedtech.co.uk** including TaxNav product pages, Privacy Policy, and Terms of Service.
+This folder contains the complete website for **finmedtech.co.uk** including TaxSwipe product pages, Privacy Policy, and Terms of Service.
 
 ## Structure
 
 ```
 landing-page/
 ├── index.html              # Company homepage (finmedtech.co.uk)
-├── taxnav/
-│   ├── index.html         # TaxNav product page
+├── taxswipe/
+│   ├── index.html         # TaxSwipe product page
 │   ├── privacy.html       # Privacy Policy (required for App Store)
 │   └── terms.html         # Terms of Service (required for App Store)
 └── README.md              # This file
@@ -18,10 +18,39 @@ landing-page/
 
 ```
 https://finmedtech.co.uk/                  → Company homepage
-https://finmedtech.co.uk/taxnav/           → TaxNav product page
-https://finmedtech.co.uk/taxnav/privacy    → Privacy Policy
-https://finmedtech.co.uk/taxnav/terms      → Terms of Service
+https://finmedtech.co.uk/taxswipe/           → TaxSwipe product page
+https://finmedtech.co.uk/taxswipe/privacy    → Privacy Policy
+https://finmedtech.co.uk/taxswipe/terms      → Terms of Service
 ```
+
+## Current Deployment
+
+This site is deployed via **Vercel**, connected to a **separate** GitHub repo: `chatrath02/finmedtech-website` (connected Feb 25).
+
+- **Vercel project name:** `finmedtech-website`
+- **GitHub repo:** `chatrath02/finmedtech-website` (separate from the main TaxSwipe repo)
+- **Domain:** `finmedtech.co.uk`
+- **Deploys automatically** on push to the connected branch
+
+### Important: Keeping landing pages in sync
+
+The landing page source lives in **two places**:
+
+1. **`chatrath02/TaxSwipe`** — this repo, under `landing-page/` (development copy)
+2. **`chatrath02/finmedtech-website`** — the repo Vercel deploys from (production copy)
+
+After making changes here, you must also push the updated files to `chatrath02/finmedtech-website` for them to go live on finmedtech.co.uk.
+
+### Alternative: Point Vercel to this repo
+
+To simplify, you could reconfigure Vercel to deploy from this repo instead:
+
+1. Log into [vercel.com](https://vercel.com)
+2. Go to the `finmedtech-website` project → **Settings** → **Git**
+3. Click **Disconnect** on `chatrath02/finmedtech-website`
+4. Reconnect to `chatrath02/TaxSwipe`
+5. Under **Settings** → **Build & Development**, set **Root Directory** to `landing-page`
+6. Under **Settings** → **Domains**, confirm `finmedtech.co.uk` is still configured
 
 ## Deployment Instructions
 
@@ -104,10 +133,10 @@ Vercel/Netlify will show you exact DNS records after you add the domain.
 ### App Store Submission Requirements
 
 Apple and Google require:
-- ✅ **Privacy Policy URL** → `https://finmedtech.co.uk/taxnav/privacy`
-- ✅ **Terms of Service URL** → `https://finmedtech.co.uk/taxnav/terms`
-- ✅ **Marketing URL** (optional) → `https://finmedtech.co.uk/taxnav`
-- ✅ **Support URL** (optional) → `https://finmedtech.co.uk/taxnav` (with support email link)
+- ✅ **Privacy Policy URL** → `https://finmedtech.co.uk/taxswipe/privacy`
+- ✅ **Terms of Service URL** → `https://finmedtech.co.uk/taxswipe/terms`
+- ✅ **Marketing URL** (optional) → `https://finmedtech.co.uk/taxswipe`
+- ✅ **Support URL** (optional) → `https://finmedtech.co.uk/taxswipe` (with support email link)
 
 ### HMRC Production Application
 
@@ -119,9 +148,9 @@ HMRC requires:
 To preview before deploying:
 
 1. Open `index.html` in your web browser
-2. Click "Learn More" on TaxNav card → should open `taxnav/index.html`
-3. Click "Privacy Policy" → should open `taxnav/privacy.html`
-4. Click "Terms of Service" → should open `taxnav/terms.html`
+2. Click "Learn More" on TaxSwipe card → should open `taxswipe/index.html`
+3. Click "Privacy Policy" → should open `taxswipe/privacy.html`
+4. Click "Terms of Service" → should open `taxswipe/terms.html`
 5. All links should work
 
 ## Next Steps
