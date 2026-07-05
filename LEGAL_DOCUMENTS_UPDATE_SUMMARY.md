@@ -78,10 +78,10 @@
 
 ### ✅ Confirmed Active Services:
 
-1. **AWS Textract**
+1. **AWS Lambda (pdfplumber)**
    - Purpose: PDF bank statement parsing
-   - Verified in: `supabase/functions/parse-pdf/index.ts`
-   - Status: ✅ Active
+   - Verified in: `lambda/handler.py` (invoked by `supabase/functions/parse-statement`)
+   - Status: ✅ Active — replaced the former AWS Textract path (removed in TSW-310)
 
 2. **HMRC API**
    - Purpose: MTD quarterly submissions, EOPS, Final Declaration

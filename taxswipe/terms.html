@@ -66,7 +66,7 @@
     </header>
 
     <div class="container">
-        <p class="last-updated">Last updated: March 22, 2026 &nbsp;|&nbsp; Governing law: England and Wales</p>
+        <p class="last-updated">Last updated: July 4, 2026 &nbsp;|&nbsp; Governing law: England and Wales</p>
 
         <p>These Terms of Service ("Terms") govern your use of the TaxSwipe mobile application ("Service") operated by FinMedTech ("we", "us", "our").</p>
         <p>By creating an account or using TaxSwipe, you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
@@ -86,9 +86,14 @@
             <li>Import transactions via PDF bank statements, CSV files, or manual entry</li>
             <li>Categorise business expenses according to HMRC categories</li>
             <li>Calculate Income Tax and National Insurance contributions</li>
-            <li>Submit quarterly Making Tax Digital (MTD) returns to HMRC</li>
+            <li>Submit quarterly Making Tax Digital (MTD) updates to HMRC</li>
+            <li>Submit year-end annual adjustments and the Final Declaration to HMRC</li>
             <li>Track tax liabilities and submission history</li>
         </ul>
+
+        <div class="important">
+            <p><strong>Scope of the Service:</strong> TaxSwipe currently supports <strong>self-employment income only</strong>. If you also receive UK property income, TaxSwipe records it to determine whether Making Tax Digital applies to you, but does <strong>not</strong> submit property updates to HMRC. If you are required to report property income under MTD, you must do so using other means alongside TaxSwipe. Partnership income is not supported.</p>
+        </div>
 
         <h2>3. Tax and Accounting Disclaimer</h2>
 
@@ -107,7 +112,7 @@
             <li>Complex tax situations</li>
             <li>Tax planning and optimisation</li>
             <li>Disputes with HMRC</li>
-            <li>Annual Self Assessment tax returns</li>
+            <li>Income outside self-employment (property, partnerships, capital gains, foreign income)</li>
         </ul>
 
         <h3>AI Disclaimer</h3>
@@ -147,15 +152,16 @@
         <ul>
             <li>Storing digital records of income and expenses</li>
             <li>Submitting quarterly updates to HMRC via their API</li>
+            <li>Submitting year-end annual adjustments and the Final Declaration via HMRC's API</li>
             <li>Maintaining submission history and HMRC references</li>
         </ul>
 
         <p>However, you remain solely responsible for:</p>
         <ul>
-            <li>Meeting all HMRC MTD requirements</li>
-            <li>Submitting accurate quarterly returns</li>
+            <li>Meeting all HMRC MTD requirements, including for any income TaxSwipe does not submit (see Scope of the Service above)</li>
+            <li>Submitting accurate quarterly updates</li>
+            <li>Reviewing and approving your year-end Final Declaration, which under MTD replaces the traditional Self Assessment return for your covered income</li>
             <li>Paying tax owed to HMRC on time</li>
-            <li>Filing your annual Self Assessment tax return (separate from MTD quarterly updates)</li>
         </ul>
 
         <h2>6. Third-Party Services</h2>
@@ -163,8 +169,10 @@
         <h3>6.1 HMRC Integration</h3>
         <p>By connecting to HMRC, you authorise TaxSwipe to:</p>
         <ul>
-            <li>Access your HMRC Business Details</li>
+            <li>Access your HMRC Business Details and obligations</li>
             <li>Submit quarterly MTD updates on your behalf</li>
+            <li>Trigger and retrieve tax calculations</li>
+            <li>Submit annual adjustments and your Final Declaration on your behalf, after your explicit in-app confirmation</li>
             <li>Retrieve submission history</li>
         </ul>
         <p>You can disconnect from HMRC at any time via Settings.</p>
@@ -173,7 +181,12 @@
         <p>AI expense categorisation suggestions are provided by Anthropic Claude. AI suggestions are not guarantees of correctness. You must review and accept responsibility for all AI-assisted categorisations.</p>
 
         <h2>7. Fees and Payment</h2>
-        <p>Some features of TaxSwipe may require a paid subscription. Payments are processed entirely by Apple (App Store) or Google (Play Store). We do not receive or store your payment card details. Subscription terms and pricing are displayed in the app before purchase.</p>
+        <p>Some features of TaxSwipe — including submitting to HMRC — require either a one-off submission credit or an active subscription. Payments are processed entirely by Apple (App Store) or Google (Play Store); we do not receive or store your payment card details. Purchase terms and pricing are displayed in the app before purchase.</p>
+        <ul>
+            <li>A credit or plan allowance is used on the first submission of each quarterly period. Amendments to an already-submitted period, and your year-end Final Declaration, are always free.</li>
+            <li>The annual pass covers the UK tax year (6 April – 5 April), not 12 months from purchase, and is pro-rated if bought mid-year.</li>
+            <li>If your subscription lapses, your data is retained but in-app access may be limited to your most recent uploads until you resubscribe or purchase a credit. You can export your data or delete your account at any time regardless of subscription status.</li>
+        </ul>
 
         <h2>8. Service Availability</h2>
         <p>We strive to provide reliable service, but we do not guarantee:</p>

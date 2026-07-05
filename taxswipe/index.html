@@ -129,6 +129,74 @@
             margin-right: 10px;
         }
 
+        .pricing {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #1B5E20;
+        }
+
+        .pricing .pricing-intro {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 50px;
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .price-card h3 {
+            font-size: 1.3em;
+            color: #1B5E20;
+            margin-bottom: 10px;
+        }
+
+        .price-card .price {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #1B5E20;
+        }
+
+        .price-card .price-unit {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+
+        .price-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .pricing .pricing-note {
+            text-align: center;
+            max-width: 640px;
+            margin: 40px auto 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+
         footer {
             background: #1B5E20;
             color: white;
@@ -202,19 +270,19 @@
                 <div class="feature">
                     <div class="feature-icon">📊</div>
                     <h3>Real-Time Tax Calculator</h3>
-                    <p>See exactly what you owe with Income Tax (20%), National Insurance (6%), and Personal Allowance calculations.</p>
+                    <p>See exactly what you owe as you go, with Income Tax and National Insurance calculated using current HMRC rates, bands and allowances.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">📅</div>
-                    <h3>Complete MTD Compliance</h3>
-                    <p>Submit quarterly returns directly to HMRC. Track all submissions and reference numbers.</p>
+                    <h3>Quarterly Updates & Final Declaration</h3>
+                    <p>Submit quarterly MTD updates and your year-end Final Declaration directly to HMRC. Track all submissions and reference numbers.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">🔒</div>
                     <h3>Bank-Level Security</h3>
-                    <p>Multi-factor authentication (MFA), biometric login (Face ID/Touch ID), encrypted local storage, and secure cloud backup with Supabase.</p>
+                    <p>Multi-factor authentication (MFA), biometric login (Face ID/Touch ID), encrypted storage, and field-level encryption of your most sensitive data.</p>
                 </div>
             </div>
         </div>
@@ -227,10 +295,39 @@
                 <li>Freelancers and contractors</li>
                 <li>Gig economy workers (Uber, Deliveroo, etc.)</li>
                 <li>Self-employed sole traders</li>
-                <li>Small business owners</li>
-                <li>Anyone with self-employment income over £50,000</li>
+                <li>Sole traders running a small business</li>
+                <li>Anyone with qualifying income (self-employment plus property, combined) over £50,000 — the threshold falls to £30,000 from April 2027 and £20,000 from April 2028</li>
                 <li>Anyone required to use Making Tax Digital from April 2026</li>
             </ul>
+            <p style="max-width: 600px; margin: 30px auto 0; color: #666; font-size: 0.95em;">TaxSwipe currently supports self-employment income. If you also receive UK property income, TaxSwipe takes it into account when checking whether MTD applies to you, but property updates themselves are not yet submitted through TaxSwipe.</p>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Simple, Honest Pricing</h2>
+            <p class="pricing-intro">TaxSwipe is free to use — upload statements, categorise transactions, and see your tax position at no cost. You only pay when you submit to HMRC.</p>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Single Submission</h3>
+                    <div class="price">£6.99</div>
+                    <div class="price-unit">one-off</div>
+                    <p>One quarterly submission to HMRC. Perfect for trying TaxSwipe or filing occasionally.</p>
+                </div>
+                <div class="price-card">
+                    <h3>Monthly</h3>
+                    <div class="price">£9.99</div>
+                    <div class="price-unit">per month</div>
+                    <p>Unlimited submissions while subscribed. For active users managing their tax as they go.</p>
+                </div>
+                <div class="price-card">
+                    <h3>Annual Pass</h3>
+                    <div class="price">£69.99</div>
+                    <div class="price-unit">per tax year</div>
+                    <p>Every submission for the whole tax year (6 April – 5 April), including your Final Declaration. Pro-rated if you join mid-year; available to buy until early January, when only single submissions or monthly remain for the year.</p>
+                </div>
+            </div>
+            <p class="pricing-note">Amendments to a quarter you've already submitted are always free, and so is your year-end Final Declaration. Purchases are made securely through the App Store; prices shown are current App Store prices and may change.</p>
         </div>
     </section>
 

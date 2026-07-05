@@ -1,2 +1,6 @@
 .vercel
-.env*.local
+
+# Environment — never commit secrets (also covered at the repo root)
+.env
+.env.*
+!.env.example
