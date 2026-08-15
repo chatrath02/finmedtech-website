@@ -1,0 +1,11 @@
+# Security policy for Finmedtech Limited (finmedtech.co.uk)
+# Covers all FinMedTech products, including TaxSwipe and BP Tracker.
+#
+# We aim to acknowledge reports within 5 working days.
+# Please do not access, modify or delete other people's data while testing,
+# and give us reasonable time to remediate before any public disclosure.
+
+Contact: mailto:security@finmedtech.co.uk
+Expires: 2027-08-14T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://finmedtech.co.uk/.well-known/security.txt

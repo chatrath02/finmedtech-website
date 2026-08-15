@@ -17,6 +17,7 @@
     }
   ],
   "redirects": [
+    { "source": "/security.txt", "destination": "/.well-known/security.txt", "permanent": true },
     { "source": "/taxnav", "destination": "/taxswipe", "permanent": true },
     { "source": "/taxnav/privacy", "destination": "/taxswipe/privacy", "permanent": true },
     { "source": "/taxnav/terms", "destination": "/taxswipe/terms", "permanent": true },
