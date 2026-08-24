@@ -4,7 +4,7 @@
 > **SUPERSEDED — historical record only. Do not follow the steps below.** (TSW-620, 23 Aug 2026)
 >
 > TaxSwipe's Privacy Policy and Terms of Service are no longer served from this repo. They live on
-> **`taxswipe.co.uk`**, which is the single source of truth; `/taxswipe/*` here is a 301 redirect only,
+> **`taxswipe.co.uk`**, which is the single source of truth; `/taxswipe/*` here is a permanent (308) redirect only,
 > and `taxswipe/privacy.html` / `taxswipe/terms.html` have been **deleted**.
 >
 > Every path, URL and `git add` command in this document refers to files that no longer exist. Acting on
