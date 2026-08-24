@@ -18,9 +18,15 @@
   ],
   "redirects": [
     { "source": "/security.txt", "destination": "/.well-known/security.txt", "permanent": true },
-    { "source": "/taxnav", "destination": "/taxswipe", "permanent": true },
-    { "source": "/taxnav/privacy", "destination": "/taxswipe/privacy", "permanent": true },
-    { "source": "/taxnav/terms", "destination": "/taxswipe/terms", "permanent": true },
-    { "source": "/taxnav/:path*", "destination": "/taxswipe/:path*", "permanent": true }
+    { "source": "/taxswipe/terms", "destination": "https://taxswipe.co.uk/terms", "permanent": true },
+    { "source": "/taxswipe/terms.html", "destination": "https://taxswipe.co.uk/terms", "permanent": true },
+    { "source": "/taxswipe/privacy", "destination": "https://taxswipe.co.uk/privacy", "permanent": true },
+    { "source": "/taxswipe/privacy.html", "destination": "https://taxswipe.co.uk/privacy", "permanent": true },
+    { "source": "/taxswipe/:path*", "destination": "https://taxswipe.co.uk/", "permanent": true },
+    { "source": "/taxswipe", "destination": "https://taxswipe.co.uk/", "permanent": true },
+    { "source": "/taxnav/terms", "destination": "https://taxswipe.co.uk/terms", "permanent": true },
+    { "source": "/taxnav/privacy", "destination": "https://taxswipe.co.uk/privacy", "permanent": true },
+    { "source": "/taxnav/:path*", "destination": "https://taxswipe.co.uk/", "permanent": true },
+    { "source": "/taxnav", "destination": "https://taxswipe.co.uk/", "permanent": true }
   ]
 }
