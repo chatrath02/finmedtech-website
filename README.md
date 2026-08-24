@@ -1,27 +1,46 @@
 # FinMedTech Landing Pages
 
-This folder contains the complete website for **finmedtech.co.uk** including TaxSwipe product pages, Privacy Policy, and Terms of Service.
+This repo is the complete website for **finmedtech.co.uk** — the company homepage, the company-level Privacy Policy and Terms of Use, and the BP Tracker product pages.
+
+**TaxSwipe is not served from here.** Its product page and legal documents live on `taxswipe.co.uk`, which is a separate Vercel project deployed from a different repo. The `/taxswipe/*` routes here are 301 redirects only.
 
 ## Structure
 
 ```
-landing-page/
 ├── index.html              # Company homepage (finmedtech.co.uk)
-├── taxswipe/
-│   ├── index.html         # TaxSwipe product page
-│   ├── privacy.html       # Privacy Policy (required for App Store)
-│   └── terms.html         # Terms of Service (required for App Store)
-└── README.md              # This file
+├── privacy-policy.html     # FinMedTech company Privacy Policy
+├── terms-of-use.html       # FinMedTech company Terms of Use
+├── bp-tracker/             # BP Tracker product page + its legal documents
+├── .well-known/            # security.txt
+├── vercel.json             # Headers and redirects
+└── README.md               # This file
 ```
 
 ## URLs After Deployment
 
 ```
 https://finmedtech.co.uk/                  → Company homepage
-https://finmedtech.co.uk/taxswipe/           → TaxSwipe product page
-https://finmedtech.co.uk/taxswipe/privacy    → Privacy Policy
-https://finmedtech.co.uk/taxswipe/terms      → Terms of Service
+https://finmedtech.co.uk/privacy           → FinMedTech Privacy Policy
+https://finmedtech.co.uk/terms-of-use      → FinMedTech Terms of Use
+https://finmedtech.co.uk/bp-tracker        → BP Tracker product page
 ```
+
+### Legacy TaxSwipe routes (301 → taxswipe.co.uk)
+
+`taxswipe.co.uk` is the single source of truth for TaxSwipe's legal documents. These routes exist only so older
+App Store Connect and HMRC references keep resolving — nothing is served from this repo under `/taxswipe`:
+
+```
+/taxswipe/terms    → https://taxswipe.co.uk/terms
+/taxswipe/privacy  → https://taxswipe.co.uk/privacy
+/taxswipe/*        → https://taxswipe.co.uk/
+/taxswipe          → https://taxswipe.co.uk/
+/taxnav/*          → the matching taxswipe.co.uk URL (older brand name)
+```
+
+Do not re-add TaxSwipe HTML under `/taxswipe` in this repo. Two copies of a legal document is exactly the defect
+TSW-620 fixed: the copy here drifted to a version missing its refund clause while `taxswipe.co.uk` carried the
+current one.
 
 ## Current Deployment
 
@@ -32,25 +51,13 @@ This site is deployed via **Vercel**, connected to a **separate** GitHub repo: `
 - **Domain:** `finmedtech.co.uk`
 - **Deploys automatically** on push to the connected branch
 
-### Important: Keeping landing pages in sync
+### This repo is the only source
 
-The landing page source lives in **two places**:
+`chatrath02/finmedtech-website` is the sole source for finmedtech.co.uk. The Vercel project's root directory
+is unset — it deploys this repo's root. Pushing to the connected branch is all that is needed to go live.
 
-1. **`chatrath02/TaxSwipe`** — this repo, under `landing-page/` (development copy)
-2. **`chatrath02/finmedtech-website`** — the repo Vercel deploys from (production copy)
-
-After making changes here, you must also push the updated files to `chatrath02/finmedtech-website` for them to go live on finmedtech.co.uk.
-
-### Alternative: Point Vercel to this repo
-
-To simplify, you could reconfigure Vercel to deploy from this repo instead:
-
-1. Log into [vercel.com](https://vercel.com)
-2. Go to the `finmedtech-website` project → **Settings** → **Git**
-3. Click **Disconnect** on `chatrath02/finmedtech-website`
-4. Reconnect to `chatrath02/TaxSwipe`
-5. Under **Settings** → **Build & Development**, set **Root Directory** to `landing-page`
-6. Under **Settings** → **Domains**, confirm `finmedtech.co.uk` is still configured
+There is no second copy to keep in sync. If you find `landing-page/` in the TaxSwipe repo, it is a stale
+leftover that is deployed nowhere — do not edit it and do not treat it as this site's source.
 
 ## Deployment Instructions
 
@@ -61,7 +68,7 @@ To simplify, you could reconfigure Vercel to deploy from this repo instead:
 2. Click **"Add New"** → **"Project"**
 
 3. **Import this folder:**
-   - Drag and drop the entire `landing-page` folder
+   - Drag and drop this repo's root folder
    - OR connect GitHub repo and select this folder
 
 4. **Deploy:**
@@ -83,7 +90,7 @@ To simplify, you could reconfigure Vercel to deploy from this repo instead:
 
 1. Go to https://netlify.com and sign up
 
-2. Drag and drop the `landing-page` folder
+2. Drag and drop this repo's root folder
 
 3. Click "Deploy"
 
@@ -93,7 +100,7 @@ To simplify, you could reconfigure Vercel to deploy from this repo instead:
 
 1. Create new GitHub repo: `finmedtech-website`
 
-2. Upload all files from `landing-page` folder
+2. Upload all files from this repo's root
 
 3. Go to repo **Settings** → **Pages**
 
@@ -133,10 +140,13 @@ Vercel/Netlify will show you exact DNS records after you add the domain.
 ### App Store Submission Requirements
 
 Apple and Google require:
-- ✅ **Privacy Policy URL** → `https://finmedtech.co.uk/taxswipe/privacy`
-- ✅ **Terms of Service URL** → `https://finmedtech.co.uk/taxswipe/terms`
-- ✅ **Marketing URL** (optional) → `https://finmedtech.co.uk/taxswipe`
-- ✅ **Support URL** (optional) → `https://finmedtech.co.uk/taxswipe` (with support email link)
+- ✅ **Privacy Policy URL** → `https://taxswipe.co.uk/privacy`
+- ✅ **Terms of Service URL** → `https://taxswipe.co.uk/terms`
+- ✅ **Marketing URL** (optional) → `https://taxswipe.co.uk/`
+- ✅ **Support URL** (optional) → `https://taxswipe.co.uk/`
+
+Use the `taxswipe.co.uk` URLs directly. The `finmedtech.co.uk/taxswipe*` equivalents still resolve via 301, but
+they are a compatibility shim for already-submitted references, not the addresses to give out.
 
 ### HMRC Production Application
 
@@ -148,10 +158,18 @@ HMRC requires:
 To preview before deploying:
 
 1. Open `index.html` in your web browser
-2. Click "Learn More" on TaxSwipe card → should open `taxswipe/index.html`
-3. Click "Privacy Policy" → should open `taxswipe/privacy.html`
-4. Click "Terms of Service" → should open `taxswipe/terms.html`
-5. All links should work
+2. Click "Learn More" on the TaxSwipe card → should leave the site for `https://taxswipe.co.uk/`
+3. Click "Learn More" on the BP Tracker card → should open `bp-tracker/index.html`
+4. All links should work
+
+Redirects live in `vercel.json` and are not exercised by opening files locally. Verify them against the Vercel
+preview deployment instead:
+
+```bash
+curl -sIL https://finmedtech.co.uk/taxswipe/terms   # must end at https://taxswipe.co.uk/terms, 301 in the chain
+curl -sIL https://finmedtech.co.uk/taxswipe/privacy
+curl -sIL https://finmedtech.co.uk/taxswipe
+```
 
 ## Next Steps
 
