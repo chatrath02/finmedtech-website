@@ -1,0 +1,32 @@
+name: Verify
+
+# This repo serves published legal documents, and its correctness is entirely "does the
+# right URL serve the right thing". `verify-site.py` asserts exactly that, offline —
+# see the module docstring for why there are no network calls.
+#
+# Draft-gated to match the workspace convention (TSW-555): the /review -> /address-review
+# loop pushes repeatedly, and re-running on every push burns minutes on code still in
+# flux. `ready_for_review` MUST stay in the types list — without it a PR flipped out of
+# draft never fires this job and can never satisfy its required status check.
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    # Skip on draft PRs only. A push to main has no pull_request context, so
+    # `github.event.pull_request` is null there and the job runs.
+    if: github.event_name == 'push' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Redirect table, internal links and documented URLs
+        run: python3 scripts/verify-site.py
