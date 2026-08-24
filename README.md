@@ -2,7 +2,7 @@
 
 This repo is the complete website for **finmedtech.co.uk** — the company homepage, the company-level Privacy Policy and Terms of Use, and the BP Tracker product pages.
 
-**TaxSwipe is not served from here.** Its product page and legal documents live on `taxswipe.co.uk`, which is a separate Vercel project deployed from a different repo. The `/taxswipe/*` routes here are 301 redirects only.
+**TaxSwipe is not served from here.** Its product page and legal documents live on `taxswipe.co.uk`, which is a separate Vercel project deployed from a different repo. The `/taxswipe/*` routes here are permanent (308) redirects only.
 
 ## Structure
 
@@ -20,12 +20,12 @@ This repo is the complete website for **finmedtech.co.uk** — the company homep
 
 ```
 https://finmedtech.co.uk/                  → Company homepage
-https://finmedtech.co.uk/privacy           → FinMedTech Privacy Policy
+https://finmedtech.co.uk/privacy-policy    → FinMedTech Privacy Policy
 https://finmedtech.co.uk/terms-of-use      → FinMedTech Terms of Use
 https://finmedtech.co.uk/bp-tracker        → BP Tracker product page
 ```
 
-### Legacy TaxSwipe routes (301 → taxswipe.co.uk)
+### Legacy TaxSwipe routes (308 → taxswipe.co.uk)
 
 `taxswipe.co.uk` is the single source of truth for TaxSwipe's legal documents. These routes exist only so older
 App Store Connect and HMRC references keep resolving — nothing is served from this repo under `/taxswipe`:
@@ -37,6 +37,10 @@ App Store Connect and HMRC references keep resolving — nothing is served from 
 /taxswipe          → https://taxswipe.co.uk/
 /taxnav/*          → the matching taxswipe.co.uk URL (older brand name)
 ```
+
+`vercel.json` sets `"permanent": true`, which Vercel emits as **308**, not 301. Both are permanent and
+search engines treat them the same; 308 additionally preserves the request method. Don't "fix" this to a
+literal 301 via `statusCode` — 308 is the correct modern choice, and the redirect targets are GETs anyway.
 
 Do not re-add TaxSwipe HTML under `/taxswipe` in this repo. Two copies of a legal document is exactly the defect
 TSW-620 fixed: the copy here drifted to a version missing its refund clause while `taxswipe.co.uk` carried the
@@ -145,7 +149,7 @@ Apple and Google require:
 - ✅ **Marketing URL** (optional) → `https://taxswipe.co.uk/`
 - ✅ **Support URL** (optional) → `https://taxswipe.co.uk/`
 
-Use the `taxswipe.co.uk` URLs directly. The `finmedtech.co.uk/taxswipe*` equivalents still resolve via 301, but
+Use the `taxswipe.co.uk` URLs directly. The `finmedtech.co.uk/taxswipe*` equivalents still resolve via 308, but
 they are a compatibility shim for already-submitted references, not the addresses to give out.
 
 ### HMRC Production Application
@@ -166,7 +170,7 @@ Redirects live in `vercel.json` and are not exercised by opening files locally. 
 preview deployment instead:
 
 ```bash
-curl -sIL https://finmedtech.co.uk/taxswipe/terms   # must end at https://taxswipe.co.uk/terms, 301 in the chain
+curl -sIL https://finmedtech.co.uk/taxswipe/terms   # must end at https://taxswipe.co.uk/terms, 308 in the chain
 curl -sIL https://finmedtech.co.uk/taxswipe/privacy
 curl -sIL https://finmedtech.co.uk/taxswipe
 ```
