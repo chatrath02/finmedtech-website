@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      { "matcher": "Bash|Edit|Write|NotebookEdit", "hooks": [ { "type": "command", "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/workspace-scope-guard.sh", "timeout": 5 } ] }
+    ]
+  }
+}
