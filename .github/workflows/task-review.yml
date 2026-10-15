@@ -1,0 +1,78 @@
+name: task-review
+# The merge guard for tasked PRs (TSW-775, rolled out from TSW-771).
+#
+# A PR whose commits carry `[n/m]` task tags cannot merge until every task is
+# approved and a final check covers its head. Untasked PRs pass at once.
+# TSW-771's own task 1 merged early because the only thing saying "not yet" was
+# one line at the bottom of a review comment, and the merge button worked. A
+# rule the person merging has to remember is not a gate; this makes GitHub
+# refuse the merge instead.
+#
+# THE GATE IS NOT IN THIS REPO, deliberately. It lives once, in
+# financial-claude-tooling (`scripts/task-gate.sh` + `scripts/task-markers.sh`,
+# wrapped by `.github/actions/task-review`), and every workspace repo calls
+# that same copy. Vendoring the two scripts here would make one more copy of a
+# grammar that already has four readers — the §2u drift class, where this
+# repo's gate quietly starts accepting a marker another repo's gate rejects and
+# nothing fails until a real merge goes the wrong way. Contract:
+# financial-claude-tooling `docs/reference/task-reviews.md`.
+#
+# Pinned @main, not a SHA: a SHA per consumer is four pins to bump on every
+# grammar fix, which is the same drift problem wearing a different hat. The
+# cost is that a broken tooling main reds this check — bounded by that repo's
+# gate-test.yml running task-gate.test.sh on every PR to main, and by a red
+# check blocking a merge rather than letting a bad one through.
+#
+# pull_request_TARGET, deliberately: this workflow file runs from the BASE
+# branch, so a PR cannot edit it to pass itself (under plain pull_request,
+# GitHub runs the PR's own copy). The PR's commits are fetched as DATA only —
+# read by git log / rev-parse, never executed — which is the documented safe
+# use of pull_request_target. Nothing from the PR is checked out: the default
+# ref under this event is the base branch, and that is left alone.
+#
+# TRUST BOUNDARY: this stops the PR's CODE from tampering with the guard. It
+# does NOT verify who wrote a `Task n/m approved` / `Final check passed`
+# comment — the gate reads it as plain text from anyone with comment access,
+# which in this workspace includes the PR's own author. It stops an accidental
+# early merge, not a forged approval.
+#
+# NO paths filter and NO draft gate — unlike the `verify` job, which is gated
+# on `!draft` (TSW-630). This is MEANT to be a required status check, and a
+# required check whose job never runs leaves the PR pending forever (TSW-506).
+# A draft gate here would mean branch protection sees a permanently missing
+# context for the whole /review → /address-review loop, which is exactly when
+# a tasked PR is in flight.
+#
+# NOT YET REQUIRED on main: branch protection lists `verify` only. Adding the
+# `task-review` context is a post-merge step, in that order deliberately — a
+# required context with no green run behind it blocks every merge immediately
+# (repos.md "Required CI context"). Until it is added this check is advisory,
+# which is also true in taxswipe and hmrc-mtd-mcp today.
+#
+# This repo's base branch is `main`, not `develop` — the three product repos
+# key the same workflow on `develop`. Getting this wrong is silent: the event
+# never matches, the job never runs, and the guard reports nothing at all.
+#
+# ready_for_review is the trigger that matters. The final check is a COMMENT,
+# and comments don't re-run this workflow, so the check re-evaluates when the
+# PR is flipped to ready — which the flow only does after the final check
+# (/ship Step 7). If a PR is already ready when its final check lands, re-run
+# this job: `gh run rerun <run-id>` on the PR's latest task-review run.
+on:
+  pull_request_target:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  task-review:
+    runs-on: ubuntu-latest
+    steps:
+      # fetch-depth: 0 is load-bearing — the gate walks --first-parent from the
+      # PR head back to its merge-base with the base branch to decide whether
+      # the PR is tasked at all. A shallow clone has no merge-base to find.
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: chatrath02/financial-claude-tooling/.github/actions/task-review@main
